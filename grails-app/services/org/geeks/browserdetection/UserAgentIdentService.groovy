@@ -229,7 +229,7 @@ class UserAgentIdentService extends WebTierService {
 	}
 
 	boolean isRobot() {
-		userAgent.browserType == BrowserType.ROBOT
+		userAgent.browser.browserType == BrowserType.ROBOT
 	}
 
 	/**
