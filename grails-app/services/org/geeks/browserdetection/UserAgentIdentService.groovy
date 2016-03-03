@@ -228,6 +228,10 @@ class UserAgentIdentService extends WebTierService {
 				(os.group && os.group in MOBILE_BROWSER_GROUPS) || isiOsDevice()
 	}
 
+	boolean isRobot() {
+		userAgent.browserType == BrowserType.ROBOT
+	}
+
 	/**
 	 * Returns the browser name.
 	 */
