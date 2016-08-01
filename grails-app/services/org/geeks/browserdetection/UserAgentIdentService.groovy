@@ -243,11 +243,16 @@ class UserAgentIdentService extends WebTierService {
 	 * Returns true if client is a mobile phone or any Android device, iPhone, iPad, iPod, PSP, Blackberry, Bada device
 	 */
 	boolean isMobile() {
-		def userAgent = getUserAgent()
-		def os = userAgent.operatingSystem
+		def mobile = getRequest().getParameter('forceMobile')
+		if(!mobile) {
+			def userAgent = getUserAgent()
+			def os = userAgent.operatingSystem
 
-		userAgent.browser.browserType == BrowserType.MOBILE_BROWSER || os in MOBILE_BROWSERS ||
-				(os.group && os.group in MOBILE_BROWSER_GROUPS) || isiOsDevice()
+			return userAgent.browser.browserType == BrowserType.MOBILE_BROWSER || os in MOBILE_BROWSERS ||
+					(os.group && os.group in MOBILE_BROWSER_GROUPS) || isiOsDevice()
+		}
+
+		return mobile != null && mobile == 'true'
 	}
 
 	boolean isRobot() {
