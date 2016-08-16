@@ -144,21 +144,25 @@ class UserAgentIdentService extends WebTierService {
 				throw new IllegalArgumentException("comparisonType should be specified")
 			}
 
-			if(comparisonType == ComparisonType.EQUAL){
-				return VersionHelper.equals(userAgent.browserVersion?.version, version)
-			}
+            if (userAgent.browserVersion?.version) {
 
-			def compRes = VersionHelper.compare(userAgent.browserVersion?.version, version)
+                if(comparisonType == ComparisonType.EQUAL){
+                    return VersionHelper.equals(userAgent.browserVersion?.version, version)
+                }
 
-			if(compRes == 1 && comparisonType == ComparisonType.GREATER){
-				return true
-			}
+                def compRes = VersionHelper.compare(userAgent.browserVersion?.version, version)
 
-			if(compRes == -1 && comparisonType == ComparisonType.LOWER){
-				return true
-			}
+                if(compRes == 1 && comparisonType == ComparisonType.GREATER){
+                    return true
+                }
 
-			return false
+                if(compRes == -1 && comparisonType == ComparisonType.LOWER){
+                    return true
+                }
+
+            }
+
+            return false
 		}
 
 		true
