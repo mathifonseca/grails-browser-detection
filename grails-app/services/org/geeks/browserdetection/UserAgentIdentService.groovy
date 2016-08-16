@@ -31,9 +31,22 @@ class UserAgentIdentService extends WebTierService {
 
 	final static String AGENT_INFO_TOKEN = "${this.name}_agentInfo"
 
-	final static def MOBILE_BROWSERS = [OperatingSystem.iOS4_IPHONE, OperatingSystem.iOS5_IPHONE, OperatingSystem.MAC_OS_X_IPAD,
-			OperatingSystem.MAC_OS_X_IPHONE, OperatingSystem.MAC_OS_X_IPOD, OperatingSystem.BADA, OperatingSystem.PSP]
-	final static def MOBILE_BROWSER_GROUPS = [OperatingSystem.ANDROID, OperatingSystem.BLACKBERRY, OperatingSystem.KINDLE, OperatingSystem.SYMBIAN]
+	final static def MOBILE_BROWSERS = [
+            OperatingSystem.iOS4_IPHONE,
+            OperatingSystem.iOS5_IPHONE,
+            OperatingSystem.MAC_OS_X_IPAD,
+			OperatingSystem.MAC_OS_X_IPHONE,
+            OperatingSystem.MAC_OS_X_IPOD,
+            OperatingSystem.BADA,
+            OperatingSystem.PSP
+    ]
+
+	final static def MOBILE_BROWSER_GROUPS = [
+            OperatingSystem.ANDROID,
+            OperatingSystem.BLACKBERRY,
+            OperatingSystem.KINDLE,
+            OperatingSystem.SYMBIAN
+    ]
 
 	boolean transactional = false
 
@@ -224,7 +237,12 @@ class UserAgentIdentService extends WebTierService {
 
 	boolean isWindowsMobile() {
 		def os = getUserAgent().operatingSystem
-		os in [ OperatingSystem.WINDOWS_MOBILE, OperatingSystem.WINDOWS_MOBILE7, OperatingSystem.WINDOWS_PHONE8, OperatingSystem.WINDOWS_PHONE8_1, OperatingSystem.WINDOWS_10_MOBILE ]
+		os in [ OperatingSystem.WINDOWS_MOBILE,
+                OperatingSystem.WINDOWS_MOBILE7,
+                OperatingSystem.WINDOWS_PHONE8,
+                OperatingSystem.WINDOWS_PHONE8_1,
+                OperatingSystem.WINDOWS_10_MOBILE
+        ]
 	}
 
 	boolean isWindowsPhone() {

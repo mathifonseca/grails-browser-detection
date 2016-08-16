@@ -21,7 +21,7 @@ grails.project.dependency.resolution = {
         mavenRepo 'https://oss.sonatype.org/content/repositories/public'
     }
     dependencies {
-        compile 'eu.bitwalker:UserAgentUtils:1.19'
+        compile 'eu.bitwalker:UserAgentUtils:1.20'
     }
 
     plugins {
