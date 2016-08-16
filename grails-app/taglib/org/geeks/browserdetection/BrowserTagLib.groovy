@@ -254,7 +254,7 @@ class BrowserTagLib {
 		def stack = getStack()
 
 		if (!stack.empty() && stack.peek().levelType == HierarchyLevelType.ChoiceTag) {
-			throw new IllegalStateException("choice tag can't be putted under other choice tag")
+			throw new IllegalStateException("choice tag can't be put under other choice tag")
 		}
 
 		def choiceTagHolder = new HierarchyLevelHolder()
