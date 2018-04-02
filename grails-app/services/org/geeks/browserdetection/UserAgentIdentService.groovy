@@ -64,7 +64,7 @@ class UserAgentIdentService extends WebTierService {
 		request.getHeader("user-agent")
 	}
 
-	private def getUserAgent() {
+	def getUserAgent() {
 
 		def userAgentString = getUserAgentString()
 		def userAgent = request.session.getAttribute(AGENT_INFO_TOKEN)
@@ -96,7 +96,7 @@ class UserAgentIdentService extends WebTierService {
 		return userAgent
 	}
 
-	private def parseUserAgent(String userAgentString){
+	def parseUserAgent(String userAgentString){
 		UserAgent.parseUserAgentString(userAgentString)
 	}
 
